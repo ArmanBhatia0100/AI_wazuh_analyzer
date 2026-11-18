@@ -1,0 +1,19 @@
+{
+    "timestamp": "2026-11-18T14:30:00.000+0000",
+    "rule": {
+        "id": "5710",
+        "level": 10,
+        "description": "Multiple authentication failures",
+        "groups": ["authentication_failed", "syslog"]
+    },
+    "agent": {
+        "id": "001",
+        "name": "Ubuntu-Server",
+        "ip": "192.168.1.100"
+    },
+    "data": {
+        "srcip": "192.168.1.50",
+        "user": "admin",
+        "protocol": "SSH"
+    }
+}

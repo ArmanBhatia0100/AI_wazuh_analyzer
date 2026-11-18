@@ -1,0 +1,5 @@
+groq.com
+openai
+rich library
+python3
+wazuh

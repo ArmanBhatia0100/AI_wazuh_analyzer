@@ -1,0 +1,35 @@
+{
+    "classification": "Authentication Failure",
+    "summary": "Alert indicates repeated SSH authentication failures from source IP 192.168.1.50 targeting user 'admin' on host Ubuntu-Server.",
+    "severity": "High",
+    "confidence": "High",
+    "evidence": [
+        "Rule level 10 indicates high severity.",
+        "Rule description: Multiple authentication failures.",
+        "Source IP: 192.168.1.50.",
+        "Target user: admin.",
+        "Protocol: SSH.",
+        "Agent host IP: 192.168.1.100."
+    ],
+    "hypotheses": [
+        "The source IP is attempting a brute-force attack against the admin account.",
+        "The failures may be from legitimate user mistyping credentials.",
+        "The failures could be due to an automated reconnaissance tool scanning for valid credentials."
+    ],
+    "mitre_technique": "T1110 - Brute Force",
+    "investigation_steps": [
+        "Review /var/log/auth.log for the number and timing of SSH authentication attempts from 192.168.1.50.",
+        "Check if the admin account is locked or disabled after repeated failures.",
+        "Determine if the source IP is associated with known malicious activity (e.g., via threat intelligence feeds).",
+        "Consider temporarily blocking or rate-limiting 192.168.1.50 on the SSH service.",
+        "Verify that no successful login has occurred from this IP.",
+        "Correlate with other logs (e.g., firewall, IDS) to identify additional malicious activity."
+    ],
+    "missing_information": [
+        "Exact number of authentication attempts and timestamps.",
+        "Duration between attempts to confirm brute-force pattern.",
+        "Whether a successful login was achieved later.",
+        "Context on whether the admin account is commonly used or has elevated privileges."
+    ],
+    "analyst_decision": "Requires human review"
+}
